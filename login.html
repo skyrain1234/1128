@@ -247,7 +247,7 @@
                     icon: "success",
                 }).then(() => {
                     // 模擬登入狀態
-                    const redirectUrl = localStorage.getItem('redirectUrl') || 'default.html';
+                    const redirectUrl = localStorage.getItem('redirectUrl') || 'index.html';
                     localStorage.removeItem('redirectUrl'); // 清除記錄，避免後續影響
                     localStorage.setItem("loggedInUser", JSON.stringify(user));
                     window.location.href = redirectUrl;
