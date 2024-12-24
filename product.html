@@ -209,7 +209,7 @@
 
                         // 開啟新視窗，並傳遞餐點資訊
                         const url = `detail.html?name=${encodeURIComponent(dish_name)}&img=${encodeURIComponent(dish_img)}&script=${encodeURIComponent(dish_script)}&type=${encodeURIComponent(dish_type)}&price=${encodeURIComponent(dish_price)}`;
-                        window.open(url, '_blank');
+                        window.location.href = url;
                     });
                 }
         
