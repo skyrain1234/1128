@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的訂單</title>
+    <link rel="icon" href="./image/food/logo_small.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    
+    <link rel="stylesheet" href="css/fenghua.css">
+    <link rel="stylesheet" href="css/fenghua_index.css">
+    <style>
+
+
+        #order-container {
+            background-color: rgba(163, 163, 163, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            margin-top: 90px;
+        }
+
+        .order {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        .order:last-child {
+            border-bottom: none;
+        }
+
+
+        .cart-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .text-text{
+            color: #f0bd65;
+        }
+        .text-order{
+            color: #a88661;
+        }
+        .btn_cart:hover{
+            border: 2px solid rgba(163, 163, 163, 0.05);
+        }
+
+
+
+    </style>
+</head>
+<body  >
+<!-- ************navbar*************** -->
+<nav id="fenghua_nav" class="fixed-top">
+</nav>
+<!-- main -->
+
+</div>
+<main>
+    <div class="container text-title" id="order-container">
+        <em class="text-white fw-bold h1">您的訂單</em>
+        <div id="orders">
+            <!-- 內容動態生成 -->
+        </div>
+    </div>
+</main>
+<!--  footer -->
+<footer id="fenghua_footer">
+    <!-- 回到頂部按鈕 -->
+    <a href="#" class="text-decoration-none text-white back_to_top text-center">
+    </a>
+    <!-- ************info_area*************** -->
+    <section  class=" bg-op-colo1 align-content-center info_area">
+    </section>
+    <!-- ************Copyright*************** -->
+    <section  class=" bg-op-colo1 mt-2 Copyright_area" >
+    </section>
+</footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/fenghua_nav&footer.js"></script>
+<script src="js/fenghua_.js"></script>
+<script src="js/cart.js"></script>
+<script>
+$(document).ready(function () {
+    // 獲取當前登入用戶資訊
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+    const loggedInUserName = loggedInUser.phone || "未登入用戶";
+
+    // 從 localStorage 獲取用戶訂單
+    const userOrders = JSON.parse(localStorage.getItem(`userOrders_${loggedInUserName}`)) || [];
+
+    // 獲取訂單顯示容器
+    const ordersContainer = $("#orders");
+
+    if (userOrders.length === 0) {
+        // 如果沒有訂單
+        ordersContainer.html("<p>您尚未有任何訂單。</p>");
+    } else {
+        // 遍歷所有訂單
+        userOrders.forEach((order, index) => {
+            const orderDiv = $(`
+                <div class="order">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <em class="h4 text-order">訂單 ${index + 1} - ${new Date(order.timestamp).toLocaleString()}</em>    
+                        </div>
+                        <div class="col-6 text-end">
+                            <h5 class="text-order">訂單狀態:<em class="h5 text-white">準備中</em></h5>
+                        </div>
+                    <div>
+                    
+                    <div class="cart-items"></div>
+                    <div class="text-end h5 fw-bold text-white ">總金額：$${order.totalPrice}</div>
+                    <div class="text-end mt-3">
+                        <button class="btn btn_cart text-white cancel-order-btn">取消訂單</button>    
+                    </div>
+                    
+                </div>
+            `);
+
+            // 添加購物車內容
+            const cartItemsDiv = orderDiv.find(".cart-items");
+            order.cart.forEach((item) => {
+                const itemDiv = $(`
+                    <div class="cart-item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-6 text-center">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <div class="col-6 text-end">
+                                <p class="h5 fw-bold text-text">${item.name}x${item.quantity}</p>
+                                <div class="fs-6 text-sub_title">單價: $${item.price}</div>
+                                <div class="fs-6 text-sub_title">總價: $${(item.price)*(item.quantity)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+                cartItemsDiv.append(itemDiv);
+            });
+             // 監聽取消訂單按鈕的點擊事件
+             orderDiv.find(".cancel-order-btn").on("click", function () {
+                Swal.fire({
+                    title: '確定取消訂單嗎?',
+                    text: "取消後將無法恢復該訂單。",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: '確認取消',
+                    cancelButtonText: '取消',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 刪除該訂單
+                        userOrders.splice(index, 1);
+                        // 更新 localStorage
+                        localStorage.setItem(`userOrders_${loggedInUserName}`, JSON.stringify(userOrders));
+                        // 重新加載訂單頁面
+                        location.reload();  // 重新加載頁面以顯示更新後的訂單
+                    }
+                });
+            });
+
+            // 添加訂單到容器
+            ordersContainer.append(orderDiv);
+        });
+    }
+});
+
+</script>
+</body>
+</html>

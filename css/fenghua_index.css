@@ -1,0 +1,201 @@
+/* 輪播 */
+.carousel-item {
+    animation: zoomIn 5s ease-in-out infinite; /* 自動放大 */
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.03); /* 恢復原始大小 */
+    }
+}
+
+/*  */
+/* about_area */
+.about_area{
+    padding: 13.5vw 0 0;
+    position: relative;
+    z-index: 1;
+}
+.wrap{
+    color: #fff;
+    visibility: visible;
+    -webkit-text-size-adjust: none;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1230px;
+    position: relative;
+    z-index: 2;
+}
+.btn_about{
+    background-color: rgba(255, 255, 255, 0);
+    width: 100%;
+    border: 2px solid white;
+    padding: 10px;
+}
+.btn_about:hover{
+    background-color: #b19b6a;
+    border: 2px solid black;
+}
+    .rightImg {
+    /* position: absolute; */
+    margin-top:60%;
+    margin-left: 40%;
+    /* pointer-events: none; */
+}
+.since_logo{
+    width: 250px;
+}
+/*  */
+.box_roller{
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    /* border: 5px solid black; */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #8B714E;
+    box-shadow: 
+    0 0 0 5px black, /* 第一層邊框 */
+    0 0 0 7px white;  /* 第二層邊框 */
+  }
+  .dish_text{
+    position: absolute;
+    z-index: 2; /* 讓 dish_text 顯示在 roller 上方 */
+    top: 50%; /* 可選：根據需要調整 */
+    left: 50%; /* 可選：根據需要調整 */
+    transform: translate(-50%, -50%); /* 可選：讓文字置中 */
+  }
+  .roller_left{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+  .box_roller:hover .roller_left{
+    left: 0;
+    opacity: 1;
+    transition: left 1s , opacity 1s
+  }
+  .roller_right{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    right: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+  .box_roller:hover .roller_right{
+    right: 0;
+    opacity: 1;
+    transition: right 1s , opacity 1s
+  }
+  @media screen and (max-width:768px) {
+    .roller_left{
+        left: 0;
+        opacity: 1;
+    }
+    .roller_right{
+        right: 0;
+        opacity: 1;
+    }
+    .dish_text{
+        color: #ffffff;
+        font-size: 19px;
+    }
+  }
+
+/*  */
+
+/* slick.js */
+/* 確保滑動內容區域一致 */
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    width: 100px; /* 固定寬度 */
+    height: 300px; /* 固定高度 */
+    overflow: hidden; /* 隱藏超出部分 */
+    margin: 0 10px; /* 圖片間距 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 圖片自適應且保持比例 */
+.item img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover; /* 確保圖片完全覆蓋容器 */
+    transition: all 0.4s ease-in-out;
+}
+/* Slick.js 過渡效果 */
+.slick-slide {
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out;
+    padding: 20px 0;
+}
+
+.slick-slide img {
+    transition: all 0.4s ease-in-out;
+}
+
+.slick-center {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.slick-prev::before,
+.slick-next::before {
+    display: none; /* 隱藏預設箭頭 */
+}
+
+.custom-prev, .custom-next {
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    color: white; /* 自訂箭頭顏色 */
+    font-size: 24px;
+}
+
+.custom-prev:hover, .custom-next:hover {
+    color: #B19B69; /* 懸停效果 */
+}
+.custom-prev:focus, .custom-next:focus {
+    outline: none; /* 移除按鈕的預設外框 */
+    color: #B19B69;    /* 確保點擊後顏色一致 */
+}
+
+/* 768以下 */
+@media screen and (max-width:768px){
+    .rightImg {
+    display: none;
+    /* position: absolute; */
+    top: 15%;
+    left: 20%;
+    width:20% ;
+    /* pointer-events: none; */
+    }
+}

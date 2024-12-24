@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的訂單</title>
+    <link rel="icon" href="./image/food/logo_small.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    
+    <link rel="stylesheet" href="css/fenghua.css">
+    <link rel="stylesheet" href="css/fenghua_index.css">
+    <style>
+
+
+        #order-container {
+            background-color: rgba(163, 163, 163, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 90px;
+            margin-bottom: 20px;
+            
+        }
+
+        .reservation {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        .reservation:last-child {
+            border-bottom: none;
+        }
+
+
+        .text-text{
+            color: #f0bd65;
+        }
+        .text-order{
+            color: #a88661;
+        }
+        .btn_cart{
+            color: white;
+        }
+        .btn_cart:hover{
+            border: 2px solid rgba(163, 163, 163, 0.05);
+            color: black;
+        }
+
+
+
+    </style>
+</head>
+<body  >
+<!-- ************navbar*************** -->
+<nav id="fenghua_nav" class="fixed-top">
+</nav>
+<!-- main -->
+
+<main>
+    <div class="container text-title" id="order-container">
+        <div class="row" id="searchArea">
+            <!-- 根據是否登入生成搜尋框 -->
+        </div>
+       
+        <em class="text-white fw-bold h1">您的預約訂位記錄</em>
+        <div id="reservations">
+            <!-- 內容動態生成 -->
+        </div>
+    </div>
+</main>
+<!--  footer -->
+<footer id="fenghua_footer">
+    <!-- 回到頂部按鈕 -->
+    <a href="#" class="text-decoration-none text-white back_to_top text-center">
+    </a>
+    <!-- ************info_area*************** -->
+    <section  class=" bg-op-colo1 align-content-center info_area">
+    </section>
+    <!-- ************Copyright*************** -->
+    <section  class=" bg-op-colo1 mt-2 Copyright_area" >
+    </section>
+</footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/fenghua_nav&footer.js"></script>
+<script src="js/fenghua_.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/autoSearch.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳳華美食</title>
+    <link rel="icon" href="./image/food/logo_small.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/fenghua.css">
+    <style>
+        .nav-link.active{
+            color: #c8ae74;
+        }
+        .card:hover{
+            cursor: pointer;
+        }
+        .btn_product{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        .btn_product:hover{
+            background-color: #b19b6a;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body   >
+    <!-- ************navbar*************** -->
+    <nav id="fenghua_nav" class="fixed-top wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1">
+    </nav>
+
+    <!-- header -->
+    <header>
+        <!--  -->
+        <section>
+            <div class="bg-cover" style="background-image: url(./image/restaurant/restaurant12.jpg); height: 100vh; background-attachment: fixed;">
+                <div class="container">
+                    <div class="row d-flex align-items-center justify-content-center vh-100">
+                        <div class="col-md-6 p-4 wow animate__animated animate__fadeInLeft "  data-wow-duration="1s" data-wow-iteration="1" style="background-color:rgba(0, 0, 0, 0); border-radius: 10px;">
+                            <div class="text-white" style="font-size:26px; line-height: 1em;">
+                                <span class="h1">
+                                    <strong>鳳華美食</strong>
+                                </span>
+                                <div class=" my-2">
+                                    <span class="h5">
+                                        <em>DELECIOUS</em><em> / 歡迎預訂外帶~</em>
+                                        <p style="background-color: #C5C4C1; height: 2px; width: 80%;"></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-end d-md-block d-none wow animate__animated animate__fadeInDown "  data-wow-duration="1s" data-wow-iteration="1">
+                            <div class="text-white" style="font-size:26px; line-height: 1em;">
+                                <span >
+                                    <em class="h2">MENU</em>
+                                </span>
+                                <div class="text-sub_title my-2 h5">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb ms-auto" style="justify-content: flex-end;">
+                                          <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-white">Home</a></li>
+                                          <li class="breadcrumb-item active" aria-current="page">menu</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- main_area -->
+     <main>
+        <div class="container my-5">
+            <!-- 導覽列 -->
+            <ul class="nav justify-content-center h3">
+              <li class="nav-item">
+                <a class="nav-link active" href="#" data-type="all">所有菜色</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="冷盤前菜">冷盤前菜</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="湯品">湯品</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="海鮮">海鮮</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="主食">主食</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="甜點">甜點</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-type="配飲">配飲</a>
+              </li>
+            </ul>
+        
+            <!-- 菜單內容 -->
+            <div id="menu-container" class="row mt-4 ">
+                <!-- 內容動態產生 -->
+            </div>
+          </div>
+     </main>
+     <!--  footer -->
+     <footer id="fenghua_footer">
+        <!-- 回到頂部按鈕 -->
+        <a href="#" class="text-decoration-none text-white back_to_top text-center">
+        </a>
+        <!-- 懸浮購物車按鈕和徽章 -->
+        <div class="button-container"id="cart_app">
+        </div>
+        <!-- ************info_area*************** -->
+        <section  class=" bg-op-colo1 align-content-center info_area">
+        </section>
+        <!-- ************Copyright*************** -->
+        <section  class=" bg-op-colo1 mt-2 Copyright_area" >
+        </section>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+    </script>
+    <!-- js -->
+    <script src="js/fenghua_nav&footer.js"></script>
+    <script src="js/fenghua_.js"></script> 
+    <script src="js/cart.js"></script>
+    <script>
+        $(function() {
+            const menuContainer = document.getElementById("menu-container");
+            let menuData = [];
+        
+            // 預設圖片路徑
+            const defaultImage = './image/food/default_1.png';
+        
+            // 使用 fetch 載入 JSON
+            async function loadMenu() {
+                try {
+                    const response = await fetch("./js/menu.json"); // JSON 檔案路徑
+                    const data = await response.json();
+                    menuData = data.menu; // 儲存菜單資料
+                    renderMenu("all"); // 預設顯示所有菜色
+                } catch (error) {
+                    console.error("載入菜單失敗:", error);
+                }
+            }
+        
+            // 渲染菜單內容
+            function renderMenu(selectedType) {
+                    menuContainer.innerHTML = ""; // 清空菜單內容
+                    let i=0;
+                    const windowWidth = window.innerWidth;
+                    
+                    menuData.forEach(section => {
+                        const type = section.type;
+                        if (selectedType === "all" || selectedType === type) {
+                            // 遍歷 data 陣列中的菜品
+                            section.data.forEach(dish => {
+
+                            i += (0.2);
+                            if (i > 0.7) {
+                                i = 0.2; // 延遲時間重置
+                            }
+                            
+                            if(windowWidth<=768){
+                                i=0.1;
+                            }
+
+                            // 檢查圖片是否存在，若不存在則使用預設圖片
+                            const dishImage = dish.img ? dish.img : defaultImage;
+                            
+                            const dishItem = `
+                                <div class="col-md-4 mb-4 wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1" data-wow-delay="${i}s">
+                                <div class="card h-100 text-white" style="border:none; background-color: rgba(0, 0, 0, 0)" data-dish_name="${dish.dish_name}" data-dish_img="${dishImage}" data-dish_script="${dish.script}" data-dish_type="${type}" data-dish_price="${dish.price}">
+                                    <button style="background-image: url(${dishImage});height: 300px; border:none;" class="card-img-top bg-cover" alt="${dish.dish_name}" ></button>
+                                    <div class="card-body text-center">
+                                    <button class="btn btn_product fw-bold fs-3 dish_detail" >${dish.dish_name} </button>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            menuContainer.insertAdjacentHTML("beforeend", dishItem);
+                            });//end forEach
+                        }//end if
+                    });//end forEach
+
+                    // 綁定按鈕點擊事件
+                    $(document).on('click','.card', function () {
+                        const dish_name = $(this).data('dish_name'); // 使用 .data() 取得值
+                        const dish_img = $(this).data('dish_img');
+                        const dish_script = $(this).data('dish_script');
+                        const dish_type = $(this).data('dish_type');
+                        const dish_price = $(this).data('dish_price');
+
+                        // 開啟新視窗，並傳遞餐點資訊
+                        const url = `detail.html?name=${encodeURIComponent(dish_name)}&img=${encodeURIComponent(dish_img)}&script=${encodeURIComponent(dish_script)}&type=${encodeURIComponent(dish_type)}&price=${encodeURIComponent(dish_price)}`;
+                        window.open(url, '_blank');
+                    });
+                }
+        
+            // 導覽列點擊事件
+            $(".nav-link").click(function(e) {
+                e.preventDefault();
+
+                // 更新 active 樣式
+                $(".nav-link").removeClass("active");
+                $(this).addClass("active");
+
+                // 根據選取的類型渲染菜單
+                const selectedType = $(this).data("type");
+                renderMenu(selectedType);
+            });
+        
+            // 載入菜單
+            loadMenu();
+        });
+    </script>
+  
+  
+</body>
+
+</html>

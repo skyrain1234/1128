@@ -1,0 +1,226 @@
+:root {
+    --fenghua_1:#b89965;
+    --fenghua_2:#b19b6a;
+}
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+  }
+/* body */
+body{
+    overflow-x: hidden;
+    background-color: #292d30; position: relative;
+}
+
+/* 購物車樣式 */
+
+.floating-cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #b89965;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .floating-cart-button:hover {
+    background-color: #212529; /* 增加背景色方便識別 */
+    cursor: pointer;
+    border: 2px solid white;
+  }
+/* 徽章樣式 */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  
+  
+  /* 包含按鈕和徽章的容器 */
+  .button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+/* end */
+
+/* 內文 */
+.text-title{
+    color: var(--fenghua_1);
+}
+.text-sub_title{
+    color: var(--fenghua_2);
+}
+/* end */
+
+/* 購物車結帳按鈕 */
+.btn_cart{
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid white;
+    width: 140px;
+    padding: 10px;
+}
+.btn_cart:hover{
+    background-color: #b89965;
+    border: 2px solid black;
+}
+/* end */
+
+/* 聯絡我們 */
+.bg-contact_area-black{
+    background-color: #212529c8;
+    box-shadow: 0px 2px 10px  grey;
+    border: #96918d 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+  }
+.bg_input{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+/* end */
+
+/* nav */
+.navbar {
+    transition: background-color 0.3s ease-in-out; /* 確保過渡動畫適用於所有狀態 */
+    background-color: transparent; /* 初始透明 */
+}
+.navbar .bg-btn-navbar {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+    background-color: transparent; /* 初始透明 */
+}
+
+.navbar.scrolled {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #212529; /* 滾動後的背景色 */
+}
+
+.nav-link{
+    color: rgb(255, 255, 255);
+}
+
+.nav-link:hover{
+    color: #c8ae74;
+}
+
+.dropdown-item {
+    color:#2e3439;
+    background-color: #ffffff;
+    border-bottom: 0.5px solid black;
+    padding: 10px;
+}
+.dropdown-item:hover{
+    background-color: #c8ae74;
+    color:#ffffff; ;
+}
+.dropdown-divider{
+    color: rgb(244, 244, 244);
+}
+.dropdown-menu{
+     padding: 0;
+}
+/* end */
+
+/* info_area */
+.info_area{
+    border-bottom: 1px solid #dfd2c1;
+}
+/* end */
+
+/* rwd */
+/* 768以上 */
+@media screen and (min-width:768px) {
+    .navbar .dropdown-menu {
+        display: block;
+        visibility: hidden ;
+        opacity: 0 ;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+
+    .navbar .nav-item.dropdown:hover .dropdown-menu {
+        visibility: visible;
+        opacity: 1 ;
+        transform: translateY(0);
+    }
+    
+}
+/* end */
+
+/* 回到頂部按鈕 */
+.back_to_top {
+    position: fixed;
+    width: 50px;
+    height: 50px; 
+    top: 80%;
+    right: -60px;
+    z-index: 9999;
+    transition: transform 0.5s ease-out,opacity 0.3s;
+    opacity: 0;
+}
+.back_to_top.show_btn{
+    transition: transform 0.5s ease-in, opacity 0.3s;
+    opacity: 100;
+    transform: translateX(-80px);
+}
+
+.back_to_top .top {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fdfdfd;
+    font-size: 100%;
+    background-color: #b89965; /* 增加背景色方便識別 */
+}
+.back_to_top .top:hover {
+    background-color: #212529; /* 增加背景色方便識別 */
+    cursor: pointer;
+    border: 2px solid white;
+}
+/* end */
+
+/* 768以下 */
+@media screen and (max-width:768px){
+    .dropdown-item {
+    color:#fdfdfd;
+    background-color: #212529;
+    border: none;
+    border-bottom: 0.5px solid rgba(255, 255, 255,0.2);
+    /* padding: 10px; */
+    }
+    .dropdown-menu{
+        border: 0.5px solid rgba(255, 255, 255,0.2);
+        border-radius: 0px;
+    }
+    
+}
+/* end */

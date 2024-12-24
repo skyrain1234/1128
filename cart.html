@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <link rel="icon" href="./image/food/logo_small.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    
+    <link rel="stylesheet" href="css/fenghua.css">
+    <link rel="stylesheet" href="css/fenghua_index.css">
+    <style>
+        table img {
+            max-width: 80px;
+            height: auto;
+        }
+
+        #cart-items tr td {
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body  >
+<!-- ************navbar*************** -->
+<nav id="fenghua_nav" class="fixed-top wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1">
+</nav>
+<!-- header -->
+<header>
+    <div class="bg-cover" style="background-image: url(./image/restaurant/restaurant12.jpg); height: 30vh; background-attachment: fixed;">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center" style="height: 40vh;">
+                <div class="col-md-6 p-4 wow animate__animated animate__fadeInLeft "  data-wow-duration="1s" data-wow-iteration="1" style="background-color:rgba(0, 0, 0, 0); border-radius: 10px;">
+                    <div class="text-white" style="font-size:26px; line-height: 1em;">
+                        <span class="h1">
+                            <strong>鳳華美食</strong>
+                        </span>
+                        <div class=" my-2">
+                            <span class="h5">
+                                <em>DELECIOUS</em><em> / 歡迎預訂外帶~</em>
+                                <p style="background-color: #C5C4C1; height: 2px; width: 80%;"></p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end d-md-block d-none wow animate__animated animate__fadeInDown "  data-wow-duration="1s" data-wow-iteration="1">
+                    <div class="text-white" style="font-size:26px; line-height: 1em;">
+                        <span >
+                            <em class="h2">購物車</em>
+                        </span>
+                        <div class="text-sub_title my-2 h5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb ms-auto" style="justify-content: flex-end;">
+                                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-white">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">shopping cart</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container my-3 wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1" data-wow-delay="0.2s">
+        <h2 class="text-center mb-4">購物車</h2>
+      
+        <!-- 購物車表格 -->
+        <div class="table-responsive" >
+          <table class="table table-bordered text-center ">
+            <thead class="table-dark border border-light">
+              <tr>
+                <th class="h4 d-md-block d-none">商品圖片</th>
+                <th class="h4">商品名稱</th>
+                <th class="h4">單價</th>
+                <th class="h4" style="width: 100px;">數量</th>
+                <th class="h4">小計</th>
+                <th class="h4">操作</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items" class="text-white">
+              <!-- 購物車項目會動態插入 -->
+            </tbody>
+          </table>
+        </div>
+      
+        <!-- 總金額與結帳 -->
+        <div class="d-flex justify-content-end align-items-center mt-4">
+          <h4 id="total-price" class="text-white">總金額：$0 </h4>
+          <button class="btn btn_cart btn-lg text-white ms-5" id="checkout-btn">結帳</button>
+        </div>
+      </div>      
+</main>
+    <!--  footer -->
+    <footer id="fenghua_footer">
+        <!-- 回到頂部按鈕 -->
+        <a href="#" class="text-decoration-none text-white back_to_top text-center">
+        </a>
+        <!-- 懸浮購物車按鈕和徽章 -->
+        <div class="button-container wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1" id="cart_app">
+        </div>
+        <!-- ************info_area*************** -->
+        <section  class=" bg-op-colo1 align-content-center info_area">
+        </section>
+        <!-- ************Copyright*************** -->
+        <section  class=" bg-op-colo1 mt-2 Copyright_area" >
+        </section>
+    </footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/fenghua_nav&footer.js"></script>
+<script src="js/fenghua_.js"></script>
+<script>
+$(document).ready(function () {
+  
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsContainer = $("#cart-items");
+  const totalPriceElement = $("#total-price");
+  if (cart.length === 0) {
+        Swal.fire({
+            icon: "info",
+            title: "您的購物車目前空空如也",
+            text:"",
+            footer:'<a href="product.html" class="text-decoration-none text-title" >參考看看我們精選的美食！</a>'
+        }).then(() => {
+            location.href = "product.html"; // 跳轉到商品頁面
+        });
+        return; // 退出，避免執行後續程式碼
+    }
+  // 渲染購物車項目
+  function renderCart() {
+    cartItemsContainer.empty(); // 清空現有項目
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.quantity * item.price;
+      totalPrice += itemTotal;
+
+      const row = `
+        <tr>
+          <td class="d-md-block d-none"><img src="${item.img}" alt="${item.name}" style="max-width: 250px; height: auto;"></td>
+          <td class="h5">
+            <div class="d-block d-md-none mb-2"><img src="${item.img}" alt="${item.name}" style="max-width: 150px; height: auto;"></div>
+            ${item.name}
+            </td>
+          <td class="h5">$${item.price}</td>
+          <td>
+            <input type="number" class=" form-control text-center quantity-input text-white" 
+                   min="1" value="${item.quantity}" data-index="${index}" style="font-size: 20px;background-color: rgba(0, 0, 0, 0);">
+          </td>
+          <td class="h5">$${itemTotal}</td>
+          <td>
+            <button class="btn btn-danger remove-btn" data-index="${index}">
+              移除
+            </button>
+          </td>
+        </tr>
+      `;
+      cartItemsContainer.append(row);
+    });
+
+    // 更新總金額
+    totalPriceElement.text(`總金額：$${totalPrice}`);
+  }
+
+  // 綁定數量更新事件
+  // 防抖 (debounce) 函式
+  let debounceTimer;
+  cartItemsContainer.on("input", ".quantity-input", function () {
+    clearTimeout(debounceTimer); // 清除之前的計時器
+
+    debounceTimer = setTimeout(() => {
+      const index = $(this).data("index");
+      const newQuantity = parseInt($(this).val(), 10);
+      if (newQuantity > 0) {
+        cart[index].quantity = newQuantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        window.shopping_cart();
+      }
+    },500);
+
+  });
+
+  // 綁定移除商品事件
+  cartItemsContainer.on("click", ".remove-btn", function () {
+    const index = $(this).data("index");
+    cart.splice(index, 1); // 移除商品
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+    window.shopping_cart();
+  });
+
+  // 綁定結帳按鈕
+  $("#checkout-btn").click(function (e) {
+      try {
+          // 嘗試從 localStorage 取得登入用戶資料
+          var loggedInUser = localStorage.getItem("loggedInUser");
+
+          // 檢查用戶是否已登入
+          if (!loggedInUser || loggedInUser === "") {
+              // 若用戶未登入，顯示警告並跳轉到登入頁面
+              Swal.fire({
+                  icon: "warning",
+                  title: "請先登入或註冊會員",
+                  text: "登入會員後才可結帳，謝謝",
+              }).then(() => {
+                  location.href = "login.html"; // 跳轉到登入頁面
+              });
+              return; // 退出，避免執行後續程式碼
+          }
+
+          // 檢查購物車是否為空
+          if (cart.length === 0) {
+              Swal.fire({
+                  icon: "warning",
+                  title: "購物車為空，請先選購商品！",
+                  timer: 1500,
+              }).then(() => {
+                  location.href = "product.html"; // 跳轉到商品頁面
+              });
+              return; // 退出，避免執行後續程式碼
+          }
+
+          // 若購物車有商品，執行結帳流程（可根據需求進行跳轉或 API 請求）
+          Swal.fire({
+              icon: "success",
+              title: "準備結帳",
+              text: "您將被引導至結帳頁面。",
+          }).then(() => {
+              // 在此處可進行結帳相關處理，如跳轉到結帳頁面
+              location.href = "checkout.html"; // 假設跳轉到結帳頁面
+          });
+
+      } catch (error) {
+          // 捕獲異常並打印錯誤
+          console.error("錯誤:", error);
+      }
+    });
+  // 初始化購物車
+  renderCart();
+
+});
+
+</script>
+<script></script>
+</body>
+</html>

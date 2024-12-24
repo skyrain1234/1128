@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="icon" href="./image/food/logo_small.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    
+    <link rel="stylesheet" href="css/fenghua.css">
+    <link rel="stylesheet" href="css/fenghua_index.css">
+    <style>
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .bg-cover {
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .dish-details {
+            background:#1b1b1c; /* 純黑背景 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* 更深陰影 */
+            border-radius: 10px;
+            color: #c8ae74;
+        }
+
+        .dish-details .form-control {
+            border-radius: 5px;
+            background-color:#212529; /* 深灰背景 */
+            color: #fff; /* 白色文字 */
+            border: 1px solid #444; /* 深灰邊框 */
+        }
+
+        .dish-details .form-control:focus {
+            border-color: #ff4d4d; /* 聚焦時紅色邊框 */
+            outline: none;
+        }
+
+        #p-cart {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            background-color: rgba(0, 0, 0, 0); /* 按鈕紅色 */
+            border: 2px solid white;
+            color: #fff; /* 白色文字 */
+        }
+
+        #p-cart:hover {
+            background-color: #c8ae74; /* 按鈕懸停更深紅 */
+            transform: scale(1.05); /* 微放大效果 */
+            border: 2px solid black;
+        }
+
+
+        @media (max-width: 768px) {
+            .bg-cover {
+                height: 300px;
+                margin-bottom: 20px;
+            }
+
+            .dish-details {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body  >
+    <!-- ************navbar*************** -->
+    <nav id="fenghua_nav" class="fixed-top">
+    </nav>
+    <!-- 懸浮購物車按鈕和徽章 -->
+    <div class="button-container" id="cart_app">
+    </div>
+    <!-- header -->
+    <header>
+        <!--  -->
+        <section>
+            <div class="bg-cover" style="background-image: url(./image/restaurant/restaurant12.jpg); height: 30vh; background-attachment: fixed;">
+                <div class="container">
+                    <div class="row d-flex align-items-center justify-content-center" style="height: 40vh;">
+                        <div class="col-md-6 p-4" style="background-color:rgba(0, 0, 0, 0); border-radius: 10px;">
+                            <div class="text-white" style="font-size:26px; line-height: 1em;">
+                                <span class="h1">
+                                    <strong>鳳華美食</strong>
+                                </span>
+                                <div class=" my-2">
+                                    <span class="h5">
+                                        <em>DELECIOUS</em><em> / 歡迎預訂外帶~</em>
+                                        <p style="background-color: #C5C4C1; height: 2px; width: 80%;"></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-end d-md-block d-none">
+                            <div class="text-white" style="font-size:26px; line-height: 1em;">
+                                <span >
+                                    <em class="h2">DETAIL</em>
+                                </span>
+                                <div class="text-sub_title my-2 h5">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb ms-auto" style="justify-content: flex-end;">
+                                          <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-white">Home</a></li>
+                                          <li class="breadcrumb-item active" aria-current="page">detail</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- main -->
+    <div class="container my-4 text-white" id="detail">
+    </div>    
+    
+     <!--  footer -->
+     <footer id="fenghua_footer">
+        <!-- 回到頂部按鈕 -->
+        <a href="#" class="text-decoration-none text-white back_to_top text-center">
+        </a>
+        <!-- ************info_area*************** -->
+        <section  class=" bg-op-colo1 align-content-center info_area">
+        </section>
+        <!-- ************Copyright*************** -->
+        <section  class=" bg-op-colo1 mt-2 Copyright_area" >
+        </section>
+    </footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/fenghua_nav&footer.js"></script>
+<script src="js/fenghua_.js"></script>
+<script src="js/cart.js"></script>
+<script>
+    // 獲取 URL 的 query string
+    const params = new URLSearchParams(window.location.search);
+    const dish_name = params.get('name');
+    const dish_price = params.get('price');
+    const dish_script = params.get('script');
+    const dish_img = params.get('img');
+    const dish_type = params.get('type');
+    
+    // 更新頁面內容
+    $(function(){
+        
+        $("#detail").html(
+            `
+                <div class="row align-items-center ">
+                    <!-- 圖片區塊 -->
+                    <div class="col-lg-7 col-md-12 bg-cover dish-image" style="background-image: url('${dish_img}'); background-color: white;"></div>
+                    <!-- 資訊區塊 -->
+                    <div class="col-lg-5 col-md-12 d-flex flex-column justify-content-between  p-5 text-center rounded dish-details">
+                        <!-- 食物分類 -->
+                        <div class="text-muted  mb-2" id="p_modal_type">${dish_type}</div>
+                        <!-- 食物名稱 -->
+                        <div class="h2 fw-bold my-2" id="p_modal_name">${dish_name}</div>
+                        <!-- 產品介紹 -->
+                        <h5 class="mt-3 text-uppercase text-white">產品介紹</h5>
+                        <p id="dish-script" class="text-white-50">${dish_script}</p>
+                        <!-- 數量選擇 -->
+                        <div class="my-3">
+                            <label for="dish-num" class="form-label">數量</label>
+                            <input type="number" class="form-control text-center bg-dark " min="1" max="50" value="1" id="dish-num" name="dish-num">
+                        </div>
+                        <!-- 價格 -->
+                        <div class="h4 my-3" id="dish-price">價格: ${dish_price}</div>
+                        <input type="hidden" name="p_modal_price_final" id="p_modal_price_final" value="">
+                        <!-- 加入購物車按鈕 -->
+                        <button class="btn btn-danger btn-lg w-100" id="dish-cart">加入購物車</button>
+                    </div>
+                </div>
+            `
+        );
+        
+        $("#dish-cart").click(function () {
+            const dish_num = $("#dish-num").val(); // 獲取數量
+            const cartItem = {
+                name: dish_name,
+                price: dish_price,
+                script: dish_script,
+                img: dish_img,
+                type: dish_type,
+                quantity: parseInt(dish_num, 10), // 將數量轉換為整數
+            };
+
+            // 獲取現有購物車資料，若無則建立空陣列
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // 檢查購物車中是否已有該商品
+            const existingItemIndex = cart.findIndex(item => item.name === cartItem.name);
+            if (existingItemIndex !== -1) {
+                // 更新數量
+                cart[existingItemIndex].quantity += cartItem.quantity;
+            } else {
+                // 新增商品
+                cart.push(cartItem);
+            }
+
+            // 將更新後的購物車儲存到 localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // 提示使用者
+            Swal.fire({
+                title: dish_name + " 已加入購物車！",
+                icon: "success",
+                timer: 1500, // 1.5 秒後自動關閉
+                showConfirmButton: true, // 隱藏確認按鈕
+            }).then(() => {
+                location.reload();
+            });
+        });
+
+        
+    })
+    
+  </script>
+</body>
+</html>

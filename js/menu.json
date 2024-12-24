@@ -1,0 +1,139 @@
+{
+    "restaurant": "鳳華樓",
+    "slogan": "鳳臨華堂，味啟盛世",
+    "menu_temp": {
+      "宴席名稱": "鳳舞九天宴",
+      "價格": "100,000台幣/桌",
+      "適用人數": "10人"
+    },
+    "menu": [
+      {
+        "type": "冷盤前菜",
+        "data": [
+          { 
+            "dish_name": "桂花醉雞捲", 
+            "script": "以桂花酒醃製嫩雞，口感清香滑順",
+            "img": "./image/food/桂花醉雞捲.jpg",
+            "price":"499"
+          },
+          { 
+            "dish_name": "黑蒜醬海蜇頭", 
+            "script": "海蜇頭佐黑蒜醬，脆口且開胃", 
+            "img": "./image/food/黑蒜醬海蜇頭.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "鵝肝佐沙拉", 
+            "script": "法式鵝肝搭配新鮮沙拉，鹹香融合", 
+            "img": "./image/food/salad.jpg",
+            "price":"599"
+            
+          }
+        ]
+      },
+      {
+        "type": "湯品",
+        "data": [
+          { 
+            "dish_name": "奶油蟹皇羹", 
+            "script": "頂級奶油與蟹皇熬製，濃郁滑順", 
+            "img": "./image/food/soup.jpg",
+            "price":"599"
+          }
+        ]
+      },
+      {
+        "type": "海鮮",
+        "data": [
+          { 
+            "dish_name": "枝竹蠔皇鮑魚扣花菇", 
+            "script": "10頭鮑魚燜煮，搭配枝竹與花菇", 
+            "img": "./image/food/abalone.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "松露干貝蒸蛋盅", 
+            "script": "頂級干貝搭配松露醬與滑嫩蒸蛋", 
+            "img": "./image/food/Chawanmushi.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "翡翠玉露清蒸紅蟳", 
+            "script": "精選深海紅蟳，以簡約蒸煮鎖住鮮甜本味，佐以翡翠蔥油及少許珍釀醬露點綴，肉質嫩滑鮮美，蟹膏豐盈香濃，展現頂級海味的純粹與奢華。", 
+            "img": "./image/food/crab.jpg",
+            "price":"699"
+          },
+          { 
+            "dish_name": "金薯香鱈排", 
+            "script": "香煎魚排佐慢燉馬鈴薯", 
+            "img": "./image/food/fish.jpg",
+            "price":"599"
+          }
+        ]
+      },
+      {
+        "type": "主食",
+        "data": [
+          { 
+            "dish_name": "琥珀蜜燒豬肋排", 
+            "script": "採用精選豬肋排，經過秘製醃料充分入味，搭配特製琥珀蜜醬低溫慢烤，外層焦香誘人，內裡肉質鮮嫩多汁，蜜香濃郁而不膩口，堪稱舌尖上的絕佳享受。", 
+            "img": "./image/food/Barbecue_pork.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "黑松露沙朗牛排", 
+            "script": "蛋麵搭配特選莎朗與黑松露，香氣四溢", 
+            "img": "./image/food/steak.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "蜜椒琥珀和牛粒", 
+            "script": "澳洲A5和牛粒配蜜椒醬，外酥內嫩", 
+            "img": "./image/food/dice_cow.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "金絲玉露鳳爪", 
+            "script": "以秘製醬料滷製，融合花椒與桂皮的香氣，入口滑嫩，骨肉輕鬆分離，醬香層次豐富，宛如玉露滋潤，餘韻悠長。", 
+            "img": "./image/food/chicken_feet.jpg",
+            "price":"599"
+          }
+        ]
+      },
+      {
+        "type": "甜點",
+        "data": [
+          { 
+            "dish_name": "紅梅水果塔", 
+            "script": "特選莓果水果塔", 
+            "img": "./image/food/dessert2.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "洛神莓語法式慕斯蛋糕", 
+            "script": "層層交織的法式經典，以香甜莓果製成的細膩慕斯搭配輕盈蛋糕胚，覆上一抹洛神花醬，酸甜平衡之間綻放優雅的味覺饗宴，宛如一場繽紛的浪漫詩篇。", 
+            "img": "./image/food/dessert1.jpg",
+            "price":"599"
+          }
+        ]
+      },
+      {
+        "type": "配飲",
+        "data": [
+          { 
+            "dish_name": "冰鎮蔓越莓檸檬茶", 
+            "script": "新鮮蔓越莓搭配甘爽檸檬", 
+            "img": "./image/food/drink22.jpg",
+            "price":"599"
+          },
+          { 
+            "dish_name": "年份白葡萄酒", 
+            "script": "特選白葡萄酒與菜品完美搭配", 
+            "img": "",
+            "price":"599"
+          }
+        ]
+      }
+    ]
+  }
+  
