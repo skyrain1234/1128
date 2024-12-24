@@ -216,7 +216,8 @@ $(document).ready(function () {
                   title: "請先登入或註冊會員",
                   text: "登入會員後才可結帳，謝謝",
               }).then(() => {
-                  location.href = "login.html"; // 跳轉到登入頁面
+                localStorage.setItem('redirectUrl', window.location.href);
+                window.location.href = 'login.html';
               });
               return; // 退出，避免執行後續程式碼
           }

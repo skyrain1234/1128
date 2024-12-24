@@ -111,7 +111,7 @@ $(document).ready(function () {
         ordersContainer.html("<p>您尚未有任何訂單。</p>");
     } else {
         // 遍歷所有訂單
-        userOrders.forEach((order, index) => {
+        userOrders.reverse().forEach((order, index) => {
             const orderDiv = $(`
                 <div class="order">
                     <div class="row">
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
             // 添加購物車內容
             const cartItemsDiv = orderDiv.find(".cart-items");
-            order.cart.forEach((item) => {
+            order.cart.reverse().forEach((item) => {
                 const itemDiv = $(`
                     <div class="cart-item">
                         <div class="row justify-content-center align-items-center">

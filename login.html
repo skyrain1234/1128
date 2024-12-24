@@ -247,8 +247,10 @@
                     icon: "success",
                 }).then(() => {
                     // 模擬登入狀態
+                    const redirectUrl = localStorage.getItem('redirectUrl') || 'default.html';
+                    localStorage.removeItem('redirectUrl'); // 清除記錄，避免後續影響
                     localStorage.setItem("loggedInUser", JSON.stringify(user));
-                    window.location.href = "index.html"; // 跳轉至主頁（可修改為其他頁面）
+                    window.location.href = redirectUrl;
                 });
             } catch (error) {
                 Swal.fire({
