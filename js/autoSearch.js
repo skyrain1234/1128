@@ -3,6 +3,7 @@ const reservationsContainer = $("#reservations");
 
 // 搜尋預訂數據的函式
 function searchReservationByPhone(phone) {
+
     // 從 localStorage 中獲取所有預訂數據
     const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
     
@@ -94,7 +95,22 @@ function showSearchResult(searchResult) {
 
 // 自動搜尋目前登入用戶的預訂數據
 function autoSearchReservation() {
+
+
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        // 檢查用戶是否已登入
+        if (!loggedInUser || loggedInUser === "") {
+            // 若用戶未登入，顯示警告並跳轉到登入頁面
+            Swal.fire({
+                icon: "warning",
+                title: "請先登入或註冊會員",
+                text: "登入會員後才可查看紀錄，謝謝",
+            }).then(() => {
+              localStorage.setItem('redirectUrl', window.location.href);
+              window.location.href = 'login.html';
+            });
+            return; // 退出，避免執行後續程式碼
+        }
 
     if (!loggedInUser || !loggedInUser.phone) {
         return;
@@ -116,29 +132,28 @@ function searchButton() {
 }
 
 // 根據是否登入生成搜尋框
-function handleUserState_preorder_history() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    searchArea=
-    `
-            <div class="col-12">
-                <label for="phoneInput" class="h2">搜尋預約紀錄</label>
-                <input type="phone" class="form-control w-25 " name="" id="phoneInput" placeholder="請輸入你的手機號碼">
-            </div>
-            <div class="col-12">
-                <button class="btn btn_cart my-3" id="searchButton">搜尋</button>
-            </div>
-    `;
-    if (loggedInUser) {
-        $(".cancel-reservation-btn").removeClass("d-none");
-    } else {
-        $(".cancel-reservation-btn").addClass("d-none");
-        $("#searchArea").html(searchArea);
-    }
-}
+// function handleUserState_preorder_history() {
+//     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+//     searchArea=
+//     `
+//             <div class="col-12">
+//                 <label for="phoneInput" class="h2">搜尋預約紀錄</label>
+//                 <input type="phone" class="form-control w-25 " name="" id="phoneInput" placeholder="請輸入你的手機號碼">
+//             </div>
+//             <div class="col-12">
+//                 <button class="btn btn_cart my-3" id="searchButton">搜尋</button>
+//             </div>
+//     `;
+//     if (loggedInUser) {
+//         $(".cancel-reservation-btn").removeClass("d-none");
+//     } else {
+//         $(".cancel-reservation-btn").addClass("d-none");
+//         $("#searchArea").html(searchArea);
+//     }
+// }
 
 // 測試：頁面加載後自動搜尋
 $(document).ready(function () {
     autoSearchReservation();
     searchButton(); // 綁定搜尋按鈕
-    handleUserState_preorder_history();
 });

@@ -111,7 +111,7 @@ $(document).ready(function () {
         ordersContainer.html("<p>您尚未有任何訂單。</p>");
     } else {
         // 遍歷所有訂單
-        userOrders.reverse().forEach((order, index) => {
+        userOrders.forEach((order, index) => {
             const orderDiv = $(`
                 <div class="order">
                     <div class="row">
