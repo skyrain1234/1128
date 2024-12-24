@@ -12,13 +12,14 @@ body{
     background-color: #292d30; position: relative;
 }
 
+
 /* 購物車樣式 */
 
 .floating-cart-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #b89965;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     padding: 15px;
     border-radius: 50%;
@@ -29,6 +30,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1.5px solid white;
   }
   .floating-cart-button:hover {
     background-color: #212529; /* 增加背景色方便識別 */
@@ -40,7 +42,7 @@ body{
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: red;
+    background-color: #b89965;
     color: white;
     border-radius: 50%;
     padding: 5px;
@@ -199,14 +201,16 @@ body{
     align-items: center;
     color: #fdfdfd;
     font-size: 100%;
-    background-color: #b89965; /* 增加背景色方便識別 */
+    border: 1.5px solid white;
+    background-color: rgba(0, 0, 0, 0); /* 增加背景色方便識別 */
 }
 .back_to_top .top:hover {
     background-color: #212529; /* 增加背景色方便識別 */
     cursor: pointer;
-    border: 2px solid white;
+    border: 1.5px solid white;
 }
 /* end */
+
 
 /* 768以下 */
 @media screen and (max-width:768px){
@@ -220,6 +224,9 @@ body{
     .dropdown-menu{
         border: 0.5px solid rgba(255, 255, 255,0.2);
         border-radius: 0px;
+    }
+    .dish_img{
+        display: none;
     }
     
 }

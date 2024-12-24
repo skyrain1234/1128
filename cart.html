@@ -16,18 +16,16 @@
     <link rel="stylesheet" href="css/fenghua.css">
     <link rel="stylesheet" href="css/fenghua_index.css">
     <style>
-        table img {
-            max-width: 80px;
-            height: auto;
-        }
+
 
         #cart-items tr td {
+          
             vertical-align: middle;
         }
 
     </style>
 </head>
-<body  >
+<body style="background-image: url(./image/restaurant/material1.png);" >
 <!-- ************navbar*************** -->
 <nav id="fenghua_nav" class="fixed-top wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1">
 </nav>
@@ -70,14 +68,14 @@
 </header>
 <main>
     <div class="container my-3 wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1" data-wow-delay="0.2s">
-        <h2 class="text-center mb-4">購物車</h2>
+        <h2 class="text-center mb-4 text-white">購物車</h2>
       
         <!-- 購物車表格 -->
         <div class="table-responsive" >
           <table class="table table-bordered text-center ">
             <thead class="table-dark border border-light">
               <tr>
-                <th class="h4 d-md-block d-none">商品圖片</th>
+                <th class="h4 dish_img">商品圖片</th>
                 <th class="h4">商品名稱</th>
                 <th class="h4">單價</th>
                 <th class="h4" style="width: 100px;">數量</th>
@@ -150,7 +148,7 @@ $(document).ready(function () {
 
       const row = `
         <tr>
-          <td class="d-md-block d-none"><img src="${item.img}" alt="${item.name}" style="max-width: 220px; height: auto;"></td>
+          <td class="d-md-block d-none"><img src="${item.img}" alt="${item.name}" style="max-width: 200px; height: auto;"></td>
           <td class="h5">
             <div class="d-block d-md-none mb-2"><img src="${item.img}" alt="${item.name}" style="max-width: 150px; height: auto;"></div>
             ${item.name}
