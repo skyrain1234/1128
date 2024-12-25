@@ -37,6 +37,12 @@
             width: 100vw;
             transition: top 0.5s ease-in-out;
         }
+        .floating-cart-button{
+            right: -60px;
+            transition: transform 0.5s ease-in,opacity 0.3s;
+            opacity: 100;
+            z-index: 9999;
+        }
 
     </style>
 </head>
@@ -167,7 +173,7 @@
         <a href="#" class="text-decoration-none text-white back_to_top text-center">
         </a>
         <!-- 懸浮購物車按鈕和徽章 -->
-        <div class="button-container wow animate__animated animate__fadeIn "  data-wow-duration="1s" data-wow-iteration="1" id="cart_app">
+        <div class="button-container " id="cart_app" >
         </div>
         <!-- ************info_area*************** -->
         <section  class=" bg-op-colo1 align-content-center info_area">
@@ -186,6 +192,33 @@
      <script src="js/fenghua_nav&footer.js"></script>
     <script src="js/fenghua_.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        function cart_btn_index(){
+            const debounce = (func, wait) => {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        };
+        $(window).on(
+            "scroll",
+            debounce(function () {
+                let scrollTop = $(this).scrollTop();
+                let windowHeight = $(window).height();
+
+                // 顯示/隱藏返回頂部按鈕
+                if (scrollTop >= windowHeight) {
+                    $(".floating-cart-button").addClass("show_btn");
+                } else {
+                    $(".floating-cart-button").removeClass("show_btn");
+                }
+            }, 50)
+        );
+        };
+        cart_btn_index();
+
+    </script>
     <!--slick_responsive  -->
     <script>
         $('.photo').slick({
