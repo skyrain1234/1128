@@ -19,6 +19,11 @@ function navbar() {
         debounce(function () {
             let scrollTop = $(this).scrollTop();
             let windowHeight = $(window).height();
+            
+            //head材質滾動
+            // const newTop = Math.min(scrollTop, 20);
+            // $('.header_texture').css('top', `${newTop}px`)
+            
 
             // 切換導航欄樣式
             if (scrollTop > 0) {

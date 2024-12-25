@@ -28,51 +28,32 @@
             width: 100%;
             height: 100%;
         }
+        .header_texture{
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            transition: top 0.5s ease-in-out;
+        }
 
     </style>
 </head>
 
 <body style="background-color: #212529; position: relative; "  >
+    
     <!-- navbar -->
     <nav id="fenghua_nav" class="fixed-top">
     </nav>
     <!-- header -->
+
     <header>
-        <!-- carousel 輪播 -->
-        <section id="s03" class="wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-iteration="1" >
-            <div id="s03_Captions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner ">
-                <div class="carousel-item active bg-cover" data-bs-interval="5000" style="background-image: url(image/restaurant/restaurant03.jpg); height: 100vh ;">
-                    <!-- <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
-                        <strong class="h2">鳳華傳承</strong>
-                    </div> -->
-                </div>
-                <div class="carousel-item bg-cover" data-bs-interval="5000" style="background-image: url(image/food/chief.jpg); height: 100vh; ">
-                    <!-- <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
-                        <strong class="h2">承古融新</strong>
-                    </div> -->
-                </div>
-                <div class="carousel-item bg-cover" data-bs-interval="5000" style="background-image: url(image/food/chicken_feet.jpg); height: 100vh ;">
-                    <!-- <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);" >
-                        <strong class="h2">經典鳳爪</strong>
-                    </div> -->
-                </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#s03_Captions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#s03_Captions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
+        <div class="wow animate__animated animate__fadeIn "  data-wow-duration="2s" data-wow-iteration="1" style="height: 100vh; overflow: hidden;">
+            <img src="./image/restaurant/material3.png"  alt="" class="header_texture">
+            <div class="bg-cover img_header" style="background-image: url(./image/restaurant/restaurant04.jpg); height: 100vh;"> 
             </div>
-        </section>
+        </div>
     </header>
 
     <!-- main_area -->
