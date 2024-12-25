@@ -115,6 +115,11 @@
     opacity: 1;
     transition: right 1s , opacity 1s
   }
+  @media screen and (max-width:1200px) {
+    .header_texture {
+        content: url('../image/restaurant/material3-middle.png'); /* 替換成新圖片路徑 */
+    }
+  }
   @media screen and (max-width:768px) {
     .roller_left{
         left: 0;
@@ -128,13 +133,13 @@
         color: #ffffff;
         font-size: 19px;
     }
-  }
-
-  @media screen and (max-width:992px) {
     .header_texture {
         content: url('../image/restaurant/material3-small.png'); /* 替換成新圖片路徑 */
     }
   }
+
+
+
 
 /*  */
 
