@@ -185,8 +185,8 @@ $(document).ready(function () {
       if (newQuantity > 0) {
         cart[index].quantity = newQuantity;
         localStorage.setItem("cart", JSON.stringify(cart));
-        renderCart();
-        window.shopping_cart();
+        renderCart(); //重新渲染購物車
+        window.shopping_cart(); //重新渲染購物車按鈕
       }
     },500);
 

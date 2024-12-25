@@ -17,12 +17,6 @@
             "price":"499"
           },
           { 
-            "dish_name": "黑蒜醬海蜇頭", 
-            "script": "海蜇頭佐黑蒜醬，脆口且開胃", 
-            "img": "./image/food/黑蒜醬海蜇頭.jpg",
-            "price":"599"
-          },
-          { 
             "dish_name": "鵝肝佐沙拉", 
             "script": "法式鵝肝搭配新鮮沙拉，鹹香融合", 
             "img": "./image/food/salad.jpg",
