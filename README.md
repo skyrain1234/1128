@@ -3,6 +3,7 @@
 </br>
 包含登入、註冊、購物車、查看訂單等功能
 
-## 首頁
-
-![螢幕擷取畫面 2025-04-10 111735](https://github.com/user-attachments/assets/99839ecd-6a97-43d0-88af-13c4239cb1e1)
+## 
+![螢幕擷取畫面 2025-04-10 111735](https://github.com/user-attachments/assets/897c1c33-9c1e-454e-92f8-9073fafcbebf)
+![螢幕擷取畫面 2025-04-10 112309](https://github.com/user-attachments/assets/62917925-45b3-45e0-bf08-819d2c7cb7de)
+![螢幕擷取畫面 2025-04-10 112438](https://github.com/user-attachments/assets/6dfd0ae5-1df4-49df-acd6-585a0bd71a70)
