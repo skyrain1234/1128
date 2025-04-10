@@ -2,6 +2,7 @@
 本專案旨在模擬一個餐廳官方網站
 </br>
 包含登入、註冊、購物車、查看訂單等功能
+<br>
 https://skyrain1234.github.io/funghua/
 
 ## 
